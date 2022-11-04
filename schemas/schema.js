@@ -1,5 +1,6 @@
 const Schema = require('@sanity/schema').default;
 const blogContentSchema = require('./blockContent');
+const recipe = require('./recipe');
 
 // imageCrop and imageHotspot are required so that enhancedImage that extends image doesn't blow up
 const { imageCrop, imageHotspot, enhancedImage } = require('./image');
@@ -14,7 +15,7 @@ const minimalValidSchemaWithBlockContent = {
 // find the blockContentType to use it for serialization
 const blockContentType = Schema.compile({
   name: 'myBlog',
-  types: [imageCrop, imageHotspot, enhancedImage, minimalValidSchemaWithBlockContent],
+  types: [imageCrop, imageHotspot, enhancedImage, minimalValidSchemaWithBlockContent, recipe],
 })
   .get('blogPost')
   .fields.find((field) => field.name === 'blockContent').type;
