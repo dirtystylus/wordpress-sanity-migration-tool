@@ -15,7 +15,7 @@ const minimalValidSchemaWithBlockContent = {
 // find the blockContentType to use it for serialization
 const blockContentType = Schema.compile({
   name: 'myBlog',
-  types: [imageCrop, imageHotspot, enhancedImage, minimalValidSchemaWithBlockContent, recipe],
+  types: [imageCrop, imageHotspot, enhancedImage, minimalValidSchemaWithBlockContent],
 })
   .get('blogPost')
   .fields.find((field) => field.name === 'blockContent').type;
